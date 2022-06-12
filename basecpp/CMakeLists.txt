@@ -6,4 +6,4 @@ include_directories(include)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS  ON)
 
-add_executable(cpp src/4compoundtype/4.1.cpp)
+add_executable(cpp src/leetcode/ac1457.cpp)

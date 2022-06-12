@@ -20,7 +20,6 @@ int main(int argc, const char *argv[]) {
     cin >> grade;
     cout << "What is your age?";
     cin >> age;
-
     cout << "Name:" << first_name + last_name << " grade:" << char(grade + 1) << " age:" << age << endl;
     return 0;
 }
