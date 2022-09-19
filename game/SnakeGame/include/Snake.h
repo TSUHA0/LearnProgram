@@ -13,6 +13,7 @@ public:
     enum class Direction {
         kUp, kDown, kLeft, kRight
     };
+    static constexpr float speed_hard_step = 0.02;
 
     Snake(int grid_width, int grid_height) :
             grid_width(grid_height),

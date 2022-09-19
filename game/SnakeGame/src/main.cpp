@@ -1,6 +1,7 @@
 //
 // Created by tsuhao on 2022/6/19.
 //
+#include <iostream>
 #include "Game.h"
 
 int main(int argc, char *argv[]) {
@@ -15,7 +16,9 @@ int main(int argc, char *argv[]) {
     Controller controller;
     Game game(grid_width, grid_height);
     game.Run(controller, renderer, kmsPerFrame);
-
+    std::cout << "Game has terminated successfully!\n";
+    std::cout << "Score: " << game.GetScore() << "\n";
+    std::cout << "Size: " << game.GetSize() << "\n";
     return 0;
 }
 

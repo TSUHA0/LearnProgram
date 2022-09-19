@@ -54,5 +54,22 @@ void Game::PlaceFood() {
 }
 
 void Game::Update() {
+    if (!snake.alive) return;
     snake.Update();
+
+    if (food.x == static_cast<int>(snake.head_x) &&
+        food.y == static_cast<int>(snake.head_y)) {
+        score++;
+        snake.GrowBody();
+        PlaceFood();
+        snake.speed += Snake::speed_hard_step;
+    }
+}
+
+int Game::GetSize() const {
+    return snake.size;
+}
+
+int Game::GetScore() const {
+    return score;
 }

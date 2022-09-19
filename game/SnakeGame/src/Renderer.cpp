@@ -46,9 +46,20 @@ void Renderer::Render(const Snake snake, const SDL_Point &food) {
     block.y = food.y * block.h;
     SDL_RenderFillRect(sdl_renderer, &block);
 
-    SDL_SetRenderDrawColor(sdl_renderer, 0x1F, 0xCC, 0x00, 0XFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0x1F, 0xCC, 0xCC, 0XFF);
+    for (auto b: snake.body) {
+        block.x = b.x * block.w;
+        block.y = b.y * block.h;
+        SDL_RenderFillRect(sdl_renderer, &block);
+    }
+
     block.x = static_cast<int>(snake.head_x) * block.w;
     block.y = static_cast<int>(snake.head_y) * block.h;
+    if (snake.alive) {
+        SDL_SetRenderDrawColor(sdl_renderer, 0x1F, 0xCC, 0x00, 0XFF);
+    } else {
+        SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+    }
     SDL_RenderFillRect(sdl_renderer, &block);
 
     SDL_RenderPresent(sdl_renderer);

@@ -16,6 +16,10 @@ public:
     void Run(Controller &controller, Renderer &renderer, std::size_t target_frame_duration);
 
 
+    int GetScore() const;
+
+    int GetSize() const;
+
 private:
     Snake snake;
     SDL_Point food;
@@ -30,6 +34,7 @@ private:
     void PlaceFood();
 
     void Update();
+
 };
 
 

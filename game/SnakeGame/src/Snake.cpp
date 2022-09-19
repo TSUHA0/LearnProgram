@@ -52,5 +52,18 @@ void Snake::UpdateHead() {
 }
 
 void Snake::UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell) {
+    body.push_back(prev_cell);
+    if (growing) {
+        growing = false;
+        size++;
+    } else {
+        body.erase(body.begin());
+    }
+    for (auto b: body) {
+        if (b.x == current_cell.x && b.y == current_cell.y) {
+            alive = false;
+            return;
+        }
+    }
 
 }
