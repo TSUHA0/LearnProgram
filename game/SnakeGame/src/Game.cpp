@@ -41,9 +41,18 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 }
 
 void Game::PlaceFood() {
-
+    int x, y;
+    while (true) {
+        x = random_w(engine);
+        y = random_h(engine);
+        if (!snake.SnakeCell(x, y)) {
+            food.x = x;
+            food.y = y;
+            return;
+        }
+    }
 }
 
 void Game::Update() {
-
+    snake.Update();
 }

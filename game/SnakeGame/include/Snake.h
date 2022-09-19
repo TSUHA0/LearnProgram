@@ -31,6 +31,7 @@ public:
     bool alive{true};
     float speed{0.1f};
     float head_x, head_y;
+    bool growing;
     std::vector<SDL_Point> body;
 
 private:

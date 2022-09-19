@@ -13,7 +13,7 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
         std::cerr << "SDL_Error: " << SDL_GetError() << std::endl;
     }
 
-    sdl_window = SDL_CreateWindow("Snake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+    sdl_window = SDL_CreateWindow("Snake", 2500, SDL_WINDOWPOS_CENTERED,
                                   screen_width, screen_height, SDL_WINDOW_SHOWN);
     if (nullptr == sdl_window) {
         std::cerr << "Window could not be created." << std::endl;
@@ -44,6 +44,11 @@ void Renderer::Render(const Snake snake, const SDL_Point &food) {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0XFF);
     block.x = food.x * block.w;
     block.y = food.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+
+    SDL_SetRenderDrawColor(sdl_renderer, 0x1F, 0xCC, 0x00, 0XFF);
+    block.x = static_cast<int>(snake.head_x) * block.w;
+    block.y = static_cast<int>(snake.head_y) * block.h;
     SDL_RenderFillRect(sdl_renderer, &block);
 
     SDL_RenderPresent(sdl_renderer);
