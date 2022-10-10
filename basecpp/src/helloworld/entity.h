@@ -6,13 +6,14 @@
 #define ENTITY_H
 
 
+#include <iostream>
 #include <string>
 #include <utility>
-#include <iostream>
 
 class Entity {
     std::string name = "entity";
     mutable int getNameCnt = 0;
+
 public:
     const std::string &getEName() const {
         ++getNameCnt;
@@ -20,14 +21,15 @@ public:
     }
 
     virtual std::string getName() const { return "entity"; }
-    Entity() {std::cout << "Entity Constructor" << std::endl;};
-    explicit Entity(std::string name):name(std::move(name)) {}
-    ~Entity() {std::cout << "Entity Destroy" << std::endl;}
+    Entity() { std::cout << "Entity Constructor" << std::endl; };
+    explicit Entity(std::string name) : name(std::move(name)) {}
+    ~Entity() { std::cout << "Entity Destroy" << std::endl; }
 };
 
 
 class Player : public Entity {
     std::string name;
+
 public:
     explicit Player(std::string name) : name(std::move(name)) {}
 
@@ -35,4 +37,4 @@ public:
 };
 
 
-#endif //ENTITY_H
+#endif//ENTITY_H

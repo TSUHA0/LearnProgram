@@ -47,6 +47,5 @@ int main() {
     Time t_b{2, 30};
     cout << "Time a + b = " << (t_a + t_b) << endl;
 
-
     return 0;
 }
